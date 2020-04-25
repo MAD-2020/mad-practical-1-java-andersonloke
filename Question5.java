@@ -26,7 +26,27 @@ public class Question5
      * Hint: Use a loop to get input. Use another 2 loops to find the mode
      */
      
-    Scanner in = new Scanner(System.in);
+     Scanner in = new Scanner(System.in);
+    ArrayList<Integer> modelist = new ArrayList<Integer>();
+    int mode = 0;
+    int input = in.nextInt();
+    for(int i = 0; i < input; i++){
+      int modeinput = in.nextInt();
+      modelist.add(modeinput);
+    }
+    int maxcount = 0;
+    for(int k = 0; k < modelist.size(); k++){
+      int temp = modelist.get(0);
+      int count = 0;
+      for(int j = 0; j < modelist.size(); j++ ){
+        if(modelist.get(j) == temp) count++;
+        if(count > maxcount) {
+          mode = temp;
+          maxcount = count;
+        }
+      }
+    }
+    System.out.print(mode);
     
   }
 }
